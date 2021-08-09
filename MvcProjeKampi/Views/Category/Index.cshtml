@@ -4,15 +4,20 @@
 }
 
 <!DOCTYPE html>
-<h3>Mvc Kamp Tablo Örneği-Kategori
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3>
+    Mvc Kamp Tablo Örneği-Kategori
 </h3>
 <br />
-<table>
+<table class="table table-hover">
     <tr>
         <th>ID</th>
         <th>Adı</th>
         <th>Açıklama</th>
         <th>Durum</th>
+        <th>Güncelle</th>
 
     </tr>
     <tr>
@@ -20,6 +25,8 @@
         <td>Eğitim</td>
         <td>Açıklama Yaptık</td>
         <td>True</td>
+        <td><Button class="btn btn-success">Güncelle</Button></td>
+
     </tr>
 
     <tr>
@@ -27,6 +34,29 @@
         <td>Spor</td>
         <td>Açıklama Yaptık</td>
         <td>True</td>
+        <td><Button class="btn btn-success">Güncelle</Button></td>
+
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>Kitap</td>
+        <td>Açıklama Yaptık</td>
+        <td>True</td>
+        <td><Button class="btn btn-success">Güncelle</Button></td>
+
+    </tr>
+
+    <tr>
+        <td>4</td>
+        <td>Kitap</td>
+        <td>Açıklama Yapılmadı</td>
+        <td>False</td>
+        <td><Button class="btn btn-success">Güncelle</Button></td>
+
     </tr>
 </table>
+<button class="btn btn-info">Yeni Kategori</button>
+<button class="btn btn-warning">Kategori Listesi</button>
+<button class="btn btn-danger">Kategori Açıklamaları</button>
 

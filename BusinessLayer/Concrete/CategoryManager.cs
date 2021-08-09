@@ -5,28 +5,51 @@ using System.Text;
 using DataAccess.Concrete.Repositories;
 using System.Threading.Tasks;
 using EntityLayer.Concrete;
+using BusinessLayer.Abstract;
+using DataAccess.Abstract;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
+        ICategoryDal _categoryDal;
 
-
-        public List<Category> GetAll()
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            return repo.List();
+            _categoryDal = categoryDal;
         }
-        public void CategoryAddBL(Category p)
+
+        public void CategoryAddBL(Category category)
         {
-            if (p.CategoryName=="" || p.CategoryName.Length<=3 || p.CategoryDescription=="" || p.CategoryName.Length>=51)
-            {
-                //hata mesajı
-            }
-            else
-            {
-                repo.Insert(p);
-            }
+
+            _categoryDal.Insert(category);
+            
+        }
+
+        public void CategoryDelete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
+        public Category GetByID(int id)
+        {
+            return _categoryDal.Get( x => x.CategoryID == id);
+        }
+
+        public List<Category> GetList()
+        {
+            
+            return _categoryDal.List();
+        }
+
+        public List<Category> GetFilteredList(List<Category> filtered)
+        {
+            return filtered.Where(x => x.CategoryStatus == true).ToList();
         }
     }
 }

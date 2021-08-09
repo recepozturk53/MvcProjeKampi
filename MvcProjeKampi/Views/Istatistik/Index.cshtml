@@ -1,0 +1,96 @@
+﻿@using MvcProjeKampi.Models;
+@model IstatistikModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row row-cols-4">
+    <div class="col text-center">
+        <div class="card text-white bg-primary mb-3" style="height:300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">@Model.CategoryCount</p>
+                <p class="card-text " style="font: bold 20px verdana">Toplam Kategori</p>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <div class="card text-white bg-success mb-3" style="height:300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">@Model.SwareHeadCount</p>
+                <p class="card-text " style="font: bold 20px verdana">Başlık Tablosunda Yazılım Kategorisine Ait Başlık Sayısı</p>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <div class="card text-white bg-gradient-lime mb-3" style="height: 300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">@Model.WriterCount</p>
+                <p class="card-text " style="font: bold 20px verdana">İsminde 'a' geçen Yazarların Sayısı</p>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <div class="card text-white bg-cyan mb-3" style="height:300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">@Model.MostHeadingCat</p>
+                <p class="card-text " style="font: bold 20px verdana">En Fazla Başlığa Sahip Kategori Sayısı</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row row-cols-4">
+    <div class="col text-center">
+        <div class="card text-white bg-gradient-indigo mb-3" style="height:300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">@Model.DifBtwnTF</p>
+                <p class="card-text " style="font: bold 20px verdana">True False Farkı</p>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <div class="card text-white bg-gradient-olive mb-3" style="height: 300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">15</p>
+                <p class="card-text " style="font: bold 20px verdana">Toplam Cari</p>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <div class="card text-white bg-gradient-teal mb-3" style=" height: 300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">15</p>
+                <p class="card-text " style="font: bold 20px verdana">Toplam Cari</p>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <div class="card text-white bg-gradient-fuchsia mb-3" style=" height: 300px;">
+            <div class="card-body ">
+                <br /><br /><br />
+                <p class="card-text " style="font: bold 40px verdana">15</p>
+                <p class="card-text " style="font: bold 20px verdana">Toplam Cari</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
