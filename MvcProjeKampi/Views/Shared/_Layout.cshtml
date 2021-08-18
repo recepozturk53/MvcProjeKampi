@@ -1,43 +1,220 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Uygulama adı", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Giriş Sayfası", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Hakkında", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kişi", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - ASP.NET Uygulamam</p>
-        </footer>
-    </div>
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title>MVC Proje Kampı</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Recognize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/web1/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link href="~/AdminLTE-3.0.4/web1/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
+    <link href="~/AdminLTE-3.0.4/web1/css/roadmap.css" rel="stylesheet" type="text/css" />
+    <!-- Banner-Slider-CSS -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/web1/css/snow.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/web1/css/aos.css">
+    <link href='~/AdminLTE-3.0.4/web1/css/aos-animation.css' rel='stylesheet prefetch' type="text/css" media="all" />
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/web1/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/web1/css/fontawesome-all.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,400,400i,500,500i,700,700i,900" rel="stylesheet">
+    <!-- //Fonts -->
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+</head>
+
+<body>
+    @RenderBody()
+    <script src="~/AdminLTE-3.0.4/web1/js/jquery-2.2.3.min.js"></script>
+    <!-- banner-type-text -->
+    <script src='~/AdminLTE-3.0.4/web1/js/aos.js'></script>
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1000
+        });
+
+    </script>
+    <!-- sticky nav bar-->
+    <script>
+        $(() => {
+
+            //On Scroll Functionality
+            $(window).scroll(() => {
+                var windowTop = $(window).scrollTop();
+                windowTop > 100 ? $('nav').addClass('navShadow') : $('nav').removeClass('navShadow');
+                windowTop > 100 ? $('ul.nav-honey').css('top', '50px') : $('ul.nav-honey').css('top', '160px');
+            });
+
+            //Click Logo To Scroll To Top
+            $('#logo').on('click', () => {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            //            //Smooth Scrolling Using Navigation Menu
+            //            $('a[href*="#"]').on('click', function(e) {
+            //                $('html,body').animate({
+            //                    scrollTop: $($(this).attr('href')).offset().top - 100
+            //                }, 500);
+            //                e.preventDefault();
+            //            });
+
+            //Toggle Menu
+            $('#menu-toggle').on('click', () => {
+                $('#menu-toggle').toggleClass('closeMenu');
+                $('ul').toggleClass('showMenu');
+
+                $('li').on('click', () => {
+                    $('ul').removeClass('showMenu');
+                    $('#menu-toggle').removeClass('closeMenu');
+                });
+            });
+
+        });
+
+    </script>
+    <!-- //sticky nav bar -->
+    <!-- Include jQuery Timeline Plugin -->
+    <script src="~/AdminLTE-3.0.4/web1/js/jquery.roadmap.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var events = [{
+                date: 'Oct 2018 - Present',
+                content: 'Company Name <small>Co-founder, Front-end Designer</small>'
+            },
+            {
+                date: '2016 - 2018',
+                content: 'Company Name <small>Senior Visual Designer</small>'
+            },
+            {
+                date: '2013 - 2016',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Freelance</small>'
+            },
+            {
+                date: '2011 - 2012',
+                content: 'San Diego university  <small>For Design</small>'
+            },
+            {
+                date: '2010 - 2011',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+
+            {
+                date: '2009 - 2010',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+
+            {
+                date: '2008 - 2009',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+            {
+                date: '2005 - 2008',
+                content: 'Lorem Ipsum  <small>Add Description</small>'
+            },
+            {
+                date: '2003 - 2005',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            },
+            {
+                date: '2001 - 2003',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            }
+            ];
+
+            $('#my-timeline').roadmap(events, {
+                eventsPerSlide: 6,
+                slide: 1,
+                prevArrow: '<i class="fas fa-chevron-left"></i>',
+                nextArrow: '<i class="fas fa-chevron-right"></i>'
+            });
+        });
+
+    </script>
+    <!-- simpleLightbox -->
+    <script src="~/AdminLTE-3.0.4/web1/js/simpleLightbox.js"></script>
+    <script>
+        $('.proj_gallery_grid a').simpleLightbox();
+
+    </script>
+    <!-- //simpleLightbox -->
+    <!-- stats -->
+    <script src="~/AdminLTE-3.0.4/web1/js/jquery.waypoints.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/web1/js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+
+    </script>
+    <!-- //stats -->
+    <!--/ start-smoth-scrolling -->
+    <script src="~/AdminLTE-3.0.4/web1/js/move-top.js"></script>
+    <script src="~/AdminLTE-3.0.4/web1/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            /*
+                                    var defaults = {
+                                          containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                     };
+                                    */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+
+    </script>
+    <!--// end-smoth-scrolling -->
+    <!-- //js -->
+
+    <script src="~/AdminLTE-3.0.4/web1/js/bootstrap.js"></script>
+
 </body>
+
 </html>

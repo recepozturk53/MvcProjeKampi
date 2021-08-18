@@ -16,6 +16,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Açıklama Alanının Boş Bırakamazsınız");
             RuleFor(x => x.CategoryName).MinimumLength(3).WithMessage("İsim 3 karakterden küçük olamaz");
             RuleFor(x => x.CategoryName).MaximumLength(20).WithMessage("İsim 20 karakterden büyük olamaz");
+
         }
     }
 }
