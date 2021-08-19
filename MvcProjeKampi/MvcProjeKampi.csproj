@@ -2296,8 +2296,6 @@
     <Content Include="AdminLTE-3.0.4\docs\upgrade-guide.md" />
     <Content Include="AdminLTE-3.0.4\docs\_config.yml" />
     <Content Include="AdminLTE-3.0.4\LICENSE" />
-    <Content Include="AdminLTE-3.0.4\package-lock.json" />
-    <Content Include="AdminLTE-3.0.4\package.json" />
     <Content Include="AdminLTE-3.0.4\plugins\.npmignore" />
     <Content Include="AdminLTE-3.0.4\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
     <Content Include="AdminLTE-3.0.4\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css.map" />
@@ -2674,8 +2672,6 @@
     <Content Include="Views\Register\WriterRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AdminLTE-3.0.4\dist\panelcss\" />
-    <Folder Include="AdminLTE-3.0.4\dist\paneljs\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
