@@ -1,0 +1,70 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Mvc Kamp Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-form-19/css/style.css">
+
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Mvc Proje Kampı Admin Kayıt</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap py-5">
+                        <div class="img d-flex align-items-center justify-content-center" style="background-image: url(/AdminLTE-3.0.4/login-form-19/images/bg.jpg);"></div>
+                        <h3 class="text-center mb-0">Hoşgeldiniz</h3>
+                        <p class="text-center">Lütfen bilgilerinizi girin</p>
+                        <form method="POST" id="signup-form" class="signup-form">
+                            <h2 class="form-title">Hesap oluştur</h2>
+                            <div class="form-group">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+                                <input type="email" class="form-control" name="AdminUserName" id="AdminUserName" placeholder="Kullanıcı Adı" required>
+                                @Html.ValidationMessageFor(m => m.AdminUserName)
+                            </div>
+                            <div class="form-group">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+                                <input type="password" class="form-control" name="AdminPassword" id="AdminPassword" placeholder="*****" required>
+                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                                @Html.ValidationMessageFor(m => m.AdminPassword)
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-100 text-md-right">
+                                    <a href="#">Şifremi Unuttum</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn form-control btn-primary rounded submit px-3">Kayıt Ol</button>
+                            </div>
+                        </form>
+                            <div class="w-100 text-center mt-4 text">
+                                <p class="loginhere">
+                                    Zate Hesabın var mı? <a href="#" class="loginhere-link">Buradan Giriş Yap</a>
+                                </p>
+
+                            </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
