@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<form action="/Register/Hash?data=" method="GET">
+    <div class="row g-3 align-items-center my-4">
+        <div class="col-auto">
+            <input id="hash" name="data" class="form-control form-control-lg" type="text" />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-lg btn-primary">Hash</button>
+        </div>
+    </div>
+</form>
+
+@if (ViewBag.Hash == true)
+{
+    <p>
+        SHA1: <span class="user-select-all">@ViewBag.SHA1</span>
+    </p>
+    <p>
+        MD5: <span class="user-select-all">@ViewBag.MD5</span>
+    </p>
+}

@@ -20,10 +20,16 @@ namespace MvcProjeKampi.Controllers
         MessageManager mm = new MessageManager(new EFMessageDal());
         MessageValidator messagevalidator = new MessageValidator();
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p = "")
         {
             string parameter = (string)Session["AdminUserName"];
-            var messagelist = mm.GetListInbox(parameter);
+            var messagelist = mm.GetListInbox(parameter, p);
+            if (string.IsNullOrEmpty(p))
+            {
+                messagelist = mm.GetListInbox(parameter);
+            }
+
+
             return View(messagelist);
         }
 
@@ -130,12 +136,16 @@ namespace MvcProjeKampi.Controllers
         public ActionResult IsRead(int id)
         {
             var result = mm.GetByID(id);
-            if (result.IsRead == false)
-            {
-                result.IsRead = true;
-            }
+            result.IsRead = !result.IsRead;
             mm.MessageUpdate(result);
-            return RedirectToAction("ReadMessage");
+            if (result.IsRead)
+            {
+                return RedirectToAction("ReadMessage");
+            }
+            else
+            {
+                return RedirectToAction("UnReadMessage");
+            }
         }
 
         public ActionResult ReadMessage()

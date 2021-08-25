@@ -17,15 +17,37 @@ namespace EntityLayer.Concrete
         public string PersonalSurname { get; set; }
         [StringLength(50)]
         public string PersonalJob { get; set; }
-        public int Sikill1 { get; set; }
-        public int Sikill2 { get; set; }
-        public int Sikill3 { get; set; }
-        public int Sikill4 { get; set; }
-        public int Sikill5 { get; set; }
-        public int Sikill6 { get; set; }
-        public int Sikill7 { get; set; }
-        public int Sikill8 { get; set; }
-        public int Sikill9 { get; set; }
-        public int Sikill10 { get; set; }
+        [StringLength(20)]
+        public string Skill { get; set; }
+        public int SkillPoint { get; set; }
+        [StringLength(20)]
+        public string Skill2 { get; set; }
+        public int SkillPoint2 { get; set; }
+        [StringLength(20)]
+        public string Skill3 { get; set; }
+        public int SkillPoint3 { get; set; }
+        [StringLength(20)]
+        public string Skill4 { get; set; }
+        public int SkillPoint4 { get; set; }
+        [StringLength(20)]
+        public string Skill5 { get; set; }
+        public int SkillPoint5 { get; set; }
+        [StringLength(20)]
+        public string Skill6 { get; set; }
+        public int SkillPoint6 { get; set; }
+        [StringLength(20)]
+        public string Skill7 { get; set; }
+        public int SkillPoint7 { get; set; }
+        [StringLength(20)]
+        public string Skill8 { get; set; }
+        public int SkillPoint8 { get; set; }
+        [StringLength(20)]
+        public string Skill9 { get; set; }
+        public int SkillPoint9 { get; set; }
+        [StringLength(20)]
+        public string Skill10 { get; set; }
+        public int SkillPoint10 { get; set; }
+        [StringLength(250)]
+        public string Image { get; set; }
     }
 }

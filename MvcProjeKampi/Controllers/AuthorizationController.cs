@@ -60,6 +60,21 @@ namespace MvcProjeKampi.Controllers
         [HttpGet]
         public ActionResult AdminUpdate(int id)
         {
+            #region ViewBag
+            List<SelectListItem> mySkills = new List<SelectListItem>() {
+        new SelectListItem {
+            Text = "A", Value = "A"
+        },
+        new SelectListItem {
+            Text = "B", Value = "B"
+        },
+        new SelectListItem {
+            Text = "C", Value = "C"
+        },
+        
+    };
+            ViewBag.MySkills = mySkills;
+            #endregion
             var adminValue = adminManager.GetById(id);
             return View(adminValue);
         }
@@ -67,8 +82,7 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult AdminUpdate(Admin admin)
         {
-            var adminValue = adminManager.GetById(admin.AdminID);
-            admin.AdminPassword = adminValue.AdminPassword;
+            
             adminManager.Update(admin);
             return RedirectToAction("Index");
         }

@@ -91,6 +91,7 @@
                                         {
                                             color = "btn btn-danger btn-sm";
                                         }
+                                        item.MessageContent = @Regex.Replace(item.MessageContent, "<.*?>", String.Empty);
 
                                         <tr>
                                             <td>
@@ -115,7 +116,7 @@
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date"> @(((DateTime)item.MessageDate).ToString("dd/MMM/yyyy"))</td>
                                             <td>
-                                                <a class="@color" href="/Message/IsRead/@item.MessageId">
+                                                <a class="@color" href="/Message/IsRead/@item.MessageId" id="sign">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
                                                     @message

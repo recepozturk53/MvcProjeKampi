@@ -4,10 +4,9 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h1>Yeni Kategori Ekleme Sayfası</h1>
 <br />
-<br />
+
 @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
 {
     <div class="form-group">
@@ -22,6 +21,6 @@
         @Html.ValidationMessageFor(x => x.CategoryDescription)
         <br />
         <br />
-        <button class="btn btn-info">Kaydet</button>
+        <button class="btn btn-info" name="parameter" type="submit" id="genericadded">Kaydet</button>
     </div>
 }

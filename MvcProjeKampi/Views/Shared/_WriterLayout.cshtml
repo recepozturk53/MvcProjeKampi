@@ -37,7 +37,7 @@ to get the desired effect
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="#" class="brand-link">
                 <img src="~/AdminLTE-3.0.4/dist/img/admin1.jpg" alt="AdminLTE Logo" class="bg-white brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">Mvc Proje Kampı</span>
@@ -59,7 +59,7 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
 
 
 
@@ -157,6 +157,7 @@ to get the desired effect
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
@@ -173,7 +174,39 @@ to get the desired effect
         $(function () {
             //Add text editor
             $('#compose-textarea').summernote()
-        })</script>
+        });
+        $('#added').click(function () {
+            swal({
+                title: "Gönderildi!",
+                text: "Mesaj Başarıyla Gönderildi!",
+                icon: "success",
+                button: false
+            });
+        });
+        $('#draft').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Taslaklara Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+        $('#delete').click(function () {
+            swal({
+                title: "Silindi!",
+                text: "Silinenlere Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+        $('#sign').click(function () {
+            swal({
+                title: "İşaretlendi!",
+                icon: "success",
+                button: false
+            });
+        });
+    </script>
 </body>
 </html>
 

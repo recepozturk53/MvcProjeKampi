@@ -20,10 +20,16 @@ namespace MvcProjeKampi.Controllers
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         MessageValidator messagevalidator = new MessageValidator();
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p = "")
         {
             string parameter = (string)Session["WriterMail"];
-            var messagelist = mm.GetListInbox(parameter);
+            var messagelist = mm.GetListInbox(parameter,p);
+            if (string.IsNullOrEmpty(p))
+            {
+                messagelist = mm.GetListInbox(parameter);
+            }
+          
+            
             return View(messagelist);
         }
 
@@ -31,6 +37,19 @@ namespace MvcProjeKampi.Controllers
         {
             string parameter = (string)Session["WriterMail"];
             var messagelist = mm.GetListSendbox(parameter);
+            return View(messagelist);
+        }
+        public ActionResult Delete()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var messagelist = mm.GetAllDeleted(parameter);
+            return View(messagelist);
+        }
+        public ActionResult Draft()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var messagelist = mm.GetAllDraft(parameter);
+            
             return View(messagelist);
         }
 
@@ -124,5 +143,51 @@ namespace MvcProjeKampi.Controllers
 
             
         }
+        public ActionResult IsDeleted(int id)
+        {
+            var result = mm.GetByID(id);
+            if (result.Status == false)
+            {
+                result.Status = true;
+            }
+            mm.MessageUpdate(result);
+            return RedirectToAction("Delete");
+        }
+
+        public ActionResult IsRead(int id)
+        {
+            var result = mm.GetByID(id);
+            result.IsRead = !result.IsRead;
+            mm.MessageUpdate(result);
+            if (result.IsRead)
+            {
+                return RedirectToAction("ReadMessage");
+            }
+            else
+            {
+                return RedirectToAction("UnReadMessage");
+            }
+        }
+        public ActionResult TotallyDelete(int id)
+        {
+            var result = mm.GetByID(id);
+            mm.MessageDelete(result);
+            return RedirectToAction("Delete");
+        }
+
+        public ActionResult ReadMessage()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var readMessage = mm.GetAllRead(parameter);
+            return View(readMessage);
+        }
+
+        public ActionResult UnReadMessage()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var unReadMessage = mm.GetAllUnRead(parameter);
+            return View(unReadMessage);
+        }
+
     }
 }

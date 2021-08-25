@@ -4,86 +4,83 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>MVC Proje Kampı</title>
     <meta charset="utf-8">
-    <title>Yazar Kayıt Paneli</title>
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- Font-->
-    <link rel="stylesheet" type="text/css" href="~/AdminLTE-3.0.4/WriterResgister/css/sourcesanspro-font.css">
-    <!-- Main Style Css -->
-    <link rel="stylesheet" href="~/AdminLTE-3.0.4/WriterResgister/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-form-20/css/style.css">
+
 </head>
-<body class="form-v8">
-    <div class="page-content">
-        <div class="form-v8-content">
-            @*<div class="form-left">
-                    <img src="images/form-v8.jpg" alt="form">
-                </div>*@
-            <div class="form-right">
-                <div class="tab">
-                    <div class="tab-inner">
-                        <button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Yazar Kayıt Paneli</button>
-                    </div>
-
+<body class="img js-fullheight" style="background-image: url(/AdminLTE-3.0.4/login-form-20/images/bg.jpg);">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">MVC Proje Kampı Yazar Kayıt Ol</h2>
                 </div>
-                <form class="form-detail" action="#" method="post">
-                    <div class="tabcontent" id="sign-up">
-                        <div class="form-row">
-                            <label class="form-row-inner">
-                                <input type="text" name="WriterName" id="WriterName" class="input-text" required>
-                                <span class="label">İsim</span>
-                                <span class="border"></span>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label class="form-row-inner">
-                                <input type="text" name="WriterSurName" id="WriterSurName" class="input-text" required>
-                                <span class="label">Soyisim</span>
-                                <span class="border"></span>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label class="form-row-inner">
-                                <input type="email" name="WriterMail" id="WriterMail" class="input-text" required>
-                                <span class="label">Mail Adresi</span>
-                                <span class="border"></span>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label class="form-row-inner">
-                                <input type="password" name="WriterPassword" id="WriterPassword" class="input-text" required>
-                                <span class="label">Şifre</span>
-                                <span class="border"></span>
-                            </label>
-                        </div>
-                        <div class="form-row-last">
-                            <input type="submit" name="register" class="register" value="Kayıt Ol">
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Bir Hesabın Var mı? <a href="/Login/WriterLogin">Buradan Giriş Yap</a></h3>
+                        @using (Html.BeginForm("WriterRegister", "Register", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="WriterName" placeholder="İsminiz" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="WriterSurname" placeholder="Soyisminiz" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="WriterMail" placeholder="Mail Adresin" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="password-field" type="password" name="WriterPassword" class="form-control" placeholder="*****" required>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <br />
+
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Kayıt Ol</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">
+                                        Beni Hatırla
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#" style="color: #fff">Şifremi Unuttum</a>
+                                </div>
+                            </div>
+                        }
+                        <p class="w-100 text-center">&mdash; Veya Sosyal Medya İle Giriş Yapın &mdash;</p>
+                        <div class="social d-flex text-center">
+                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
                         </div>
                     </div>
-                </form>
-
+                </div>
             </div>
         </div>
-    </div>
-    <script type="text/javascript">
-		function openCity(evt, cityName) {
-		    var i, tabcontent, tablinks;
-		    tabcontent = document.getElementsByClassName("tabcontent");
-		    for (i = 0; i < tabcontent.length; i++) {
-		        tabcontent[i].style.display = "none";
-		    }
-		    tablinks = document.getElementsByClassName("tablinks");
-		    for (i = 0; i < tablinks.length; i++) {
-		        tablinks[i].className = tablinks[i].className.replace(" active", "");
-		    }
-		    document.getElementById(cityName).style.display = "block";
-		    evt.currentTarget.className += " active";
-		}
-		// Get the element with id="defaultOpen" and click on it
-		document.getElementById("defaultOpen").click();
-    </script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    </section>
+
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/jquery.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/popper.js"></script>
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/bootstrap.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/main.js"></script>
+
+</body>
 </html>

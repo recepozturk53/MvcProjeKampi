@@ -24,7 +24,7 @@ namespace BusinessLayer.Concrete
             return _headingDal.Get(x => x.HeadingID == id);
         }
 
-        public Heading GetByID2(int id)
+        public Heading GetByCatID(int id)
         {
             return _headingDal.Get(x => x.CategoryID == id);
         }
@@ -60,6 +60,10 @@ namespace BusinessLayer.Concrete
         public List<Heading> GetListByWriter(int id)
         {
             return _headingDal.List(x=> x.WriterID==id);
+        }
+        public List<Heading> GetListByCategory(int id)
+        {
+            return _headingDal.List(x => x.CategoryID == id);
         }
     }
 }

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-@{string color = ""; string val = "Pasif yap";}
+@{string color = ""; string color_status = ""; string val = "Pasif yap";}
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -64,7 +64,7 @@
                         @foreach (var item in Model)
                         {
 
-                            if (item.Category.CategoryName=="Tiyatro")
+                            if (item.Category.CategoryName == "Tiyatro")
                             {
                                 color = "badge badge-warning";
                             }
@@ -88,62 +88,73 @@
                             {
                                 color = "badge badge-primary";
                             }
-                        <tr>
-                            <td>
-                                @item.CategoryID
-                            </td>
-                            <td>
-                                <a>
-                                    @item.HeadingName
-                                </a>
-                                <br />
-                                <small>
-                                    @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
-                                </small>
-                            </td>
-                            <td>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
-                                    </li>
-                                    
-                                    
-                                </ul>
-                            </td>
-                            <td>
-                                @item.HeadingtStatus
-                            </td>
-                            
-                            <td class="project-state">
-                                <span class="@color">@item.Category.CategoryName</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingID">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    İçerikler
-                                </a>
-                                <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Düzenle
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
-                                    <i class="fas fa-trash">
-                                    </i>
+                            if (item.HeadingtStatus == false)
+                            {
+                                color_status = "btn btn-success btn-sm";
+                                val = "Aktif yap";
+                            }
+                            else
+                            {
+                                color_status = "btn btn-danger btn-sm";
+                                val = "Pasif yap";
+                            }
+                            <tr>
+                                <td>
+                                    @item.CategoryID
+                                </td>
+                                <td>
+                                    <a>
+                                        @item.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
+                                        </li>
+
+
+                                    </ul>
+                                </td>
+                                <td>
                                     @if (item.HeadingtStatus == false)
                                     {
-                                        val = "Aktif yap";
+                                        <span class="badge badge-danger">@item.HeadingtStatus</span>
                                     }
                                     else
                                     {
-                                        val = "Pasif yap";
+                                        <span class="badge badge-success">@item.HeadingtStatus</span>
                                     }
-                                    @val
 
-                                </a>
-                            </td>
-                        </tr>
+                                </td>
+
+                                <td class="project-state">
+                                    <span class="@color">@item.Category.CategoryName</span>
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingID">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        İçerikler
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="@color_status" href="/Heading/DeleteHeading/@item.HeadingID">
+                                        <i class="fas fa-trash">
+                                        </i>
+
+                                        @val
+
+                                    </a>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>

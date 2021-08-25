@@ -74,8 +74,7 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-
-
+                                        item.MessageContent = @Regex.Replace(item.MessageContent, "<.*?>", String.Empty);
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -92,7 +91,7 @@
                                                 }
                                                 else if (item.MessageContent.Length >= 30)
                                                 {
-                                            <span><b>@item.Subject</b> &ndash; @Regex.Replace(item.MessageContent, "<.*?>", String.Empty).Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
+                                            <span><b>@item.Subject</b> &ndash; @item.MessageContent.Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
                                                 }
                                             </td>
                                             <td class="mailbox-attachment"></td>

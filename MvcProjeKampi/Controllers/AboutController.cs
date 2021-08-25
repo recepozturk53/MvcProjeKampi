@@ -51,5 +51,18 @@ namespace MvcProjeKampi.Controllers
             abm.AboutDelete(headingValue);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult UpdateAbout(int id)
+        {
+            var updatevalue = abm.GetByID(id);
+            return View(updatevalue);
+        }
+        [HttpPost]
+        public ActionResult UpdateAbout(About about)
+        {
+            abm.AboutUpdate(about);
+            return RedirectToAction("Index");
+
+        }
     }
 }

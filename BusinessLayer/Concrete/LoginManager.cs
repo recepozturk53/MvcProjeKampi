@@ -30,7 +30,9 @@ namespace BusinessLayer.Concrete
 
         public Writer GetWriter(string username, string password)
         {
-            return _writerDal.Get(x => x.WriterMail == username && x.WriterPassword == password);
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            return _writerDal.Get(x => x.WriterMail == username && x.WriterPassword == result);
         }
 
 

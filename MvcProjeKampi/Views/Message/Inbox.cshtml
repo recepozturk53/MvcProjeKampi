@@ -39,12 +39,17 @@
                         <h3 class="card-title">Gelen Mesajlar</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm">
-                                <input type="text" class="form-control" placeholder="Mail kutusunda ara">
-                                <div class="input-group-append">
-                                    <div class="btn btn-primary">
-                                        <i class="fas fa-search"></i>
+                                @using (Html.BeginForm("Inbox", "Message", FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+                                    <div class="input-group">
+                                        <input name="p" type="text" class="form-control" placeholder="Mail kutusunda ara">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </span>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </div>
                         <!-- /.card-tools -->
@@ -95,7 +100,7 @@
                                         {
                                             color = "btn btn-danger btn-sm";
                                         }
-
+                                        item.MessageContent = @Regex.Replace(item.MessageContent, "<.*?>", String.Empty);
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -103,7 +108,7 @@
                                                     <label for="check1"></label>
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/Message/IsDeleted/@item.MessageId"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <td class="mailbox-star"><a href="/Message/IsDeleted/@item.MessageId" id="delete"><i class="far fa-trash-alt text-danger"></i></a></td>
                                             <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@item.MessageId">@item.SenderMail</a></td>
                                             <td class="mailbox-subject">
 
@@ -113,13 +118,13 @@
                                                 }
                                                 else if (item.MessageContent.Length >= 30)
                                                 {
-                                            <span><b>@item.Subject</b> &ndash; @Regex.Replace(item.MessageContent, "<.*?>", String.Empty).Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
-                                                                                                                }
+                                                    <span><b>@item.Subject</b> &ndash; @Regex.Replace(item.MessageContent, "<.*?>", String.Empty).Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
+                                                }
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date"> @(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
                                             <td>
-                                                <a class="@color" href="/Message/IsRead/@item.MessageId">
+                                                <a class="@color" href="/Message/IsRead/@item.MessageId" id="sign">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
                                                     @message

@@ -28,69 +28,82 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--//web font-->
     <!--circle-chart-->
     <script src="~/AdminLTE-3.0.4/web/js/jquery-1.11.1.min.js"></script>
-    <script src="~/AdminLTE-3.0.4/web/js/jquery.circlechart.js"></script>
+    @*<script src="~/AdminLTE-3.0.4/web/js/jquery.circlechart.js"></script>*@
     <!--//circle-chart-->
     <!--ResponsiveTabs-->
-    <script src="~/AdminLTE-3.0.4/web/js/easyResponsiveTabs.js" type="text/javascript"></script>
-    <script type="text/javascript">
-	$(document).ready(function () {
-		$('#horizontalTab').easyResponsiveTabs({
-			type: 'default', //Types: default, vertical, accordion
-			width: 'auto', //auto or any width like 600px
-			fit: true   // 100% fit in a container
-		});
-	});
-    </script>
+    @*<script src="~/AdminLTE-3.0.4/web/js/easyResponsiveTabs.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
+        </script>*@
     <!--//ResponsiveTabs-->
 </head>
 <body>
     <!-- main -->
     <div class="main">
         <h1>Yeteneklerim</h1>
+        <div class="txt-center"><a href="/Personal/AddCard/" class="btn btn-default" style="background-color:#0094ff; margin:auto; color:white;">Yeni Kart Ekle</a></div>
         <div class="main-info w3l">
             <div class="main-row">
                 @foreach (var item in Model)
                 {
+                    <div class="profile-grid logo wthree">
+                        @if (item.Image != null)
+                        {
+                            <img src="@item.Image" style="width:150px;" alt="">
+                        }
+                        else
+                        {
+                            <img src="~/AdminLTE-3.0.4/dist/img/avatar5.png" style="width:150px;" alt="">
+                        }
 
-               
-                <!-- main-row-one -->
-                <div class="profile-grid logo wthree">
-                    <img src="~/AdminLTE-3.0.4/web/images/actual_admin.jpg" alt="" width="150px" height="225px">
+                        <h2>@item.PersonalName @item.PersonalSurname </h2>
+                        <p>@item.PersonalJob</p>
 
-                    <h2>@item.PersonalName &nbsp; @item.PersonalSurname</h2>
-                    <p>@item.PersonalJob</p>
+                    </div>
+                    <h3 class="title">Yeteneklerim</h3>
+                    <div style="margin-bottom:20px;">
+                        <a href="/Statistics/Index/" style="margin-right:100px; color:aqua">İstatistiklere Dön</a>
+                        <a href="/Personal/UpdateCard/@item.PersonalID" class="btn btn-default" style="background-color:#ff6a00; color:white;">Bilgileri Güncelle</a>
+                    </div>
 
-                </div>
-                <h3 class="title">Yetenekler</h3>
-                <div class="col-md-6 skills-right bar_group">
 
-                    <div class='bar_group__bar thin' label='Java' value='@item.Sikill1'></div>
-                    <div class='bar_group__bar thin' label='Android Studio' value='@item.Sikill2'></div>
-                    <div class='bar_group__bar thin' label='Sql' value='@item.Sikill3'></div>
-                    <div class='bar_group__bar thin' label='c#' value='@item.Sikill4'></div>
-                    <div class='bar_group__bar thin' label='Python' value='@item.Sikill5'></div>
-                    <div class='bar_group__bar thin' label='Görüntü İşleme' value='@item.Sikill6'></div>
-                    <div class='bar_group__bar thin' label='MVC.net' value='@item.Sikill7'></div>
-                    <div class='bar_group__bar thin' label='Visual Programming' value='@item.Sikill8'></div>
-                    <div class='bar_group__bar thin' label='Firebase' value='@item.Sikill9'></div>
-                    <div class='bar_group__bar thin' label='Workout' value='@item.Sikill10'></div>
-                </div>
-                <!--bar-js-->
-                <script src="~/AdminLTE-3.0.4/web/js/bars.js"></script>
-                <div class="social-icons agileits">
-                    <ul>
-                        <li><a href="#"></a></li>
-                        <li><a href="#" class="fb"></a></li>
-                        <li><a href="#" class="be"></a></li>
-                        <li><a href="#" class="gg"></a></li>
-                    </ul>
-                </div>
-                <div class="clear"> </div>
+                    <div class="col-md-6 skills-right bar_group">
+                        <div class='bar_group__bar thin' label='@item.Skill &nbsp;&nbsp; @item.SkillPoint%' value='@item.SkillPoint'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill2 &nbsp;&nbsp; @item.SkillPoint2%' value='@item.SkillPoint2'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill3 &nbsp;&nbsp; @item.SkillPoint3%' value='@item.SkillPoint3'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill4 &nbsp;&nbsp; @item.SkillPoint4%' value='@item.SkillPoint4'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill5 &nbsp;&nbsp; @item.SkillPoint5%' value='@item.SkillPoint5'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill6 &nbsp;&nbsp; @item.SkillPoint6%' value='@item.SkillPoint6'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill7 &nbsp;&nbsp; @item.SkillPoint7%' value='@item.SkillPoint7'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill8 &nbsp;&nbsp; @item.SkillPoint8%' value='@item.SkillPoint8'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill9 &nbsp;&nbsp; @item.SkillPoint9%' value='@item.SkillPoint9'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill10 &nbsp;&nbsp; @item.SkillPoint10%' value='@item.SkillPoint10'></div>
+
+                    </div>
+                    <div class="social-icons agileits">
+                        <ul>
+                            <li><a href="#"></a></li>
+                            <li><a href="#" class="fb"></a></li>
+                            <li><a href="#" class="be"></a></li>
+                            <li><a href="#" class="gg"></a></li>
+                        </ul>
+                    </div>
+                    <hr />
+                    <br />
                 }
+                <script src="~/AdminLTE-3.0.4/web/js/bars.js"></script>
+                <div class="clear"> </div>
+
             </div>
-                
+
         </div>
-                
+
         <!-- copyright -->
         <div class="copyright">
             <p> © 2016 Skills Profile Widget . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts.</a></p>

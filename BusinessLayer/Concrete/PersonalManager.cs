@@ -18,9 +18,30 @@ namespace BusinessLayer.Concrete
             _personalDal = personalDal;
         }
 
+        public void Add(Personal p)
+        {
+            _personalDal.Insert(p);
+
+        }
+        public void Delete(Personal p)
+        {
+            _personalDal.Delete(p);
+        }
+
+        public Personal GetByID(int id)
+        {
+
+            return _personalDal.Get(x => x.PersonalID == id);
+        }
+
         public List<Personal> GetList()
         {
             return _personalDal.List();
+        }
+
+        public void Update(Personal p)
+        {
+            _personalDal.Update(p);
         }
     }
 }

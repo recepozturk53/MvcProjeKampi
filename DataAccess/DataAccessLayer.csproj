@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,6 +63,7 @@
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IPersonalDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="EntityFramework\EFLoginDal.cs" />
     <Compile Include="EntityFramework\EFMessageDal.cs" />
     <Compile Include="EntityFramework\EFPersonalDal.cs" />
+    <Compile Include="EntityFramework\EFSkillDal.cs" />
     <Compile Include="EntityFramework\EFWriterDal.cs" />
     <Compile Include="Migrations\202108041144491_mig1.cs" />
     <Compile Include="Migrations\202108041144491_mig1.designer.cs">
@@ -142,6 +145,22 @@
     <Compile Include="Migrations\202108160947267_mig_about_status.designer.cs">
       <DependentUpon>202108160947267_mig_about_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108200730057_mig_writerRole.cs" />
+    <Compile Include="Migrations\202108200730057_mig_writerRole.designer.cs">
+      <DependentUpon>202108200730057_mig_writerRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108231436450_mig_gerialma.cs" />
+    <Compile Include="Migrations\202108231436450_mig_gerialma.designer.cs">
+      <DependentUpon>202108231436450_mig_gerialma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108231948352_mig_newskilltable.cs" />
+    <Compile Include="Migrations\202108231948352_mig_newskilltable.designer.cs">
+      <DependentUpon>202108231948352_mig_newskilltable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108231955591_mig_personalchangings.cs" />
+    <Compile Include="Migrations\202108231955591_mig_personalchangings.designer.cs">
+      <DependentUpon>202108231955591_mig_personalchangings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +222,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108160947267_mig_about_status.resx">
       <DependentUpon>202108160947267_mig_about_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200730057_mig_writerRole.resx">
+      <DependentUpon>202108200730057_mig_writerRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108231436450_mig_gerialma.resx">
+      <DependentUpon>202108231436450_mig_gerialma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108231948352_mig_newskilltable.resx">
+      <DependentUpon>202108231948352_mig_newskilltable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108231955591_mig_personalchangings.resx">
+      <DependentUpon>202108231955591_mig_personalchangings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

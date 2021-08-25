@@ -15,11 +15,18 @@ namespace MvcProjeKampi.Controllers
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         WriterManager wm = new WriterManager(new EFWriterDal());
         // GET: Heading
-        public ActionResult Index()
+        public ActionResult Index(int id = 0)
         {
-            var headingvalues = hm.GetList();
+            var headingvalues = id == 0 ? hm.GetList() : hm.GetListByWriter(id);
             return View(headingvalues);
         }
+
+        public ActionResult GetByCat(int id = 0)
+        {
+            var headingvalues = hm.GetListByCategory(id);
+            return View("Index", headingvalues);
+        }
+
         [HttpGet]
         public ActionResult AddHeading()
         {
@@ -88,5 +95,13 @@ namespace MvcProjeKampi.Controllers
             hm.HeadingDelete(headingValue);
             return RedirectToAction("Index");
         }
+
+        public ActionResult HeadingReport()
+        {
+            var headingvalues = hm.GetList();
+            return View(headingvalues);
+        }
+
+       
     }
 }

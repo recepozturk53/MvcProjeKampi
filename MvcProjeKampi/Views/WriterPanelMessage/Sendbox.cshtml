@@ -76,28 +76,28 @@
                                     {
 
 
-                                        <tr>
-                                            <td>
-                                                <div class="icheck-primary">
-                                                    <input type="checkbox" value="" id="check1">
-                                                    <label for="check1"></label>
-                                                </div>
-                                            </td>
-                                            <td class="mailbox-star"><a href="/WriterPanelMessage/GetSendboxMessageDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/WriterPanelMessage/GetSendboxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
-                                            <td class="mailbox-subject">
-                                                @if (item.MessageContent.Length < 30)
-                                                {
-                                                    <b>@item.Subject</b><a> - </a> @item.MessageContent
-                                                }
-                                                else if (item.MessageContent.Length >= 30)
-                                                {
-                                            <span><b>@item.Subject</b> &ndash; @Regex.Replace(item.MessageContent, "<.*?>", String.Empty).Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
-                                                }
-                                            </td>
-                                            <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date"> @(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="check1">
+                                                <label for="check1"></label>
+                                            </div>
+                                        </td>
+                                        <td class="mailbox-star"><a href="/WriterPanelMessage/IsDeleted/@item.MessageId" id="delete"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                        <td class="mailbox-name"><a href="/WriterPanelMessage/GetSendboxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
+                                        <td class="mailbox-subject">
+                                            @if (item.MessageContent.Length < 30)
+                                            {
+                                                <b>@item.Subject</b><a> - </a> @item.MessageContent
+                                            }
+                                            else if (item.MessageContent.Length >= 30)
+                                            {
+                                                <span><b>@item.Subject</b> &ndash; @Regex.Replace(item.MessageContent, "<.*?>", String.Empty).Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
+                                            }
+                                        </td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date"> @(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>

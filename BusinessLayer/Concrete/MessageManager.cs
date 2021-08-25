@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetAllDraft(string parameter)
         {
-            return _messageDal.List(x => x.SenderMail == parameter);
+            return _messageDal.List(x => x.SenderMail == parameter).Where(y=>y.Draft==true && y.Status==false).ToList();
         }
 
         public List<Message> GetAllRead(string parameter)
@@ -50,16 +50,17 @@ namespace BusinessLayer.Concrete
         {
             return _messageDal.List(x=>x.ReceiverMail==parameter).Where(x=>x.Status==false).ToList();
         }
+        public List<Message> GetListInbox(string parameter,string contain)
+        {
+            return _messageDal.List(x => x.ReceiverMail == parameter).Where(x => x.Status == false && (x.MessageContent.Contains(contain)||x.SenderMail.Contains(contain)||x.Subject.Contains(contain))).ToList();
+        }
 
         public List<Message> GetListSendbox(string parameter)
         {
             return _messageDal.List(x => x.SenderMail==parameter).Where(x=> x.Draft==false && x.Status == false).ToList();
         }
 
-        public List<Message> IsDraft()
-        {
-            return _messageDal.List(x => x.Draft == true);
-        }
+       
 
         public void MessageAddBL(Message message)
         {
@@ -67,9 +68,8 @@ namespace BusinessLayer.Concrete
         }
 
         public void MessageDelete(Message message)
-        {
-             message.Status = true;            
-            _messageDal.Update(message);
+        {         
+            _messageDal.Delete(message);
         }
 
         public void MessageUpdate(Message message)

@@ -14,12 +14,13 @@
         <th>ID</th>
         <th>Hakkımda Başlığı</th>
         <th>Aktif Yap</th>
+        <th>Düzenle</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.AboutId</td>
-            <td>Başlık</td>
+            <td>@item.AboutDetails1</td>
             <td>
                 @if (item.AboutStatus == false)
                 {
@@ -35,6 +36,7 @@
                     @val
                 </a>
             </td>
+            <td> <a href="/About/UpdateAbout/@item.AboutId" class="btn btn-warning">Düzenle</a></td>
         </tr>
     }
 </table>

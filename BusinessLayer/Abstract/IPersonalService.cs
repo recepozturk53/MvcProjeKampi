@@ -10,5 +10,9 @@ namespace BusinessLayer.Abstract
     public interface IPersonalService
     {
         List<Personal> GetList();
+        Personal GetByID(int id);
+        void Add(Personal p);
+        void Update(Personal p);
+        void Delete(Personal p);
     }
 }

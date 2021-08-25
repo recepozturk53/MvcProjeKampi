@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -78,6 +79,7 @@
     <Compile Include="Concrete\ImageFile.cs" />
     <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Personal.cs" />
+    <Compile Include="Concrete\Skill.cs" />
     <Compile Include="Concrete\Writer.cs" />
     <Compile Include="Concrete\Contact.cs" />
     <Compile Include="Concrete\Content.cs" />

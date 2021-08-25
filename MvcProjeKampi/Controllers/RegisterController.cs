@@ -66,8 +66,23 @@ namespace MvcProjeKampi.Controllers
             string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
             writer.WriterPassword = result;
             writer.WriterStatus = true;
+            writer.WriterRole = "B";
             wm.WriterAddBL(writer);
             return RedirectToAction("WriterLogin", "Login");
         }
+
+        public ActionResult Hash(string data = null)
+        {
+            if (data != null)
+            {
+                SHA1 sha1 = new SHA1CryptoServiceProvider();
+                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(data)));
+                ViewBag.SHA1 = result;
+                ViewBag.MD5 = result;
+                ViewBag.Hash = true;
+            }
+            return View();
+        }
+
     }
 }

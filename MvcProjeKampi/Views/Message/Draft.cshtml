@@ -72,6 +72,7 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
+                                        item.MessageContent = @Regex.Replace(item.MessageContent, "<.*?>", String.Empty);
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -80,7 +81,7 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="/Message/GetInboxMessageDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
+                                            <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@item.MessageId">@item.SenderMail</a></td>
                                             <td class="mailbox-subject">
                                                 @if (item.MessageContent.Length < 30)
                                                 {
@@ -88,7 +89,8 @@
                                                 }
                                                 else if (item.MessageContent.Length >= 30)
                                                 {
-                                            <span><b>@item.Subject</b> &ndash; @Regex.Replace(item.MessageContent, "<.*?>", String.Empty).Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
+                                                 <span><b>@item.Subject</b> &ndash; @item.MessageContent.Substring(0, item.MessageContent.Substring(0, 30).LastIndexOf(" "))&hellip;</span>
+
                                                 }
 
                                                 @*<b>@item.Subject</b> - @item.MessageContent.Substring(0, 30)*@

@@ -37,7 +37,7 @@ to get the desired effect
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="#" class="brand-link">
                 <img src="~/AdminLTE-3.0.4/dist/img/admin1.jpg" alt="AdminLTE Logo" class="bg-white brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminCol</span>
@@ -103,7 +103,7 @@ to get the desired effect
 
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="/Chart/Index/" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
                                     Grafikler
@@ -112,19 +112,19 @@ to get the desired effect
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                    <a href="/Chart/Index/" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pasta Grafiği</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
+                                    <a href="/Chart/About/" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Sütun Grafiği</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
+                                    <a href="/Chart/Image/" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Çizgi Grafiği</p>
                                     </a>
@@ -140,6 +140,17 @@ to get the desired effect
                             </a>
 
                         </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="/Heading/HeadingReport/" class="nav-link">
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>
+                                    Raporlar
+                                </p>
+                            </a>
+
+                        </li>
+
                         <li class="nav-item has-treeview">
                             <a href="/Contact/Index" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
@@ -150,64 +161,65 @@ to get the desired effect
 
                         </li>
 
-                        <li class="nav-header">EXAMPLES</li>
-                        <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon fas fa-calendar-alt"></i>
-                                <p>
-                                    Yetkilendirmeler
-                                    <span class="badge badge-info right">2</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/Gallery/Index" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
-                                <p>
-                                    Galeri
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/ErrorPage/Page404" class="nav-link">
-                                <i class="nav-icon far fa-envelope"></i>
-                                <p>
-                                    Hata Sayfaları
+                        @if (User.IsInRole("B"))
+                        {
+                            <li class="nav-item">
+                                <a href="/Authorization/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-calendar-alt"></i>
+                                    <p>
+                                        Yetkilendirmeler
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                            <li class="nav-item">
+                                <a href="/Gallery/Index" class="nav-link">
+                                    <i class="nav-icon far fa-image"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="/ErrorPage/Page404" class="nav-link">
+                                    <i class="nav-icon far fa-envelope"></i>
+                                    <p>
+                                        Hata Sayfaları
 
-                                </p>
-                            </a>
+                                    </p>
+                                </a>
 
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/Home/Homepage/" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Siteye Git
-                                </p>
-                            </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="/Home/Homepage/" class="nav-link">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Siteye Git
+                                    </p>
+                                </a>
 
-                        </li>
+                            </li>
 
-                        <li class="nav-item has-treeview">
-                            <a href="/Personal/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-circle"></i>
-                                <p>
-                                    Profil Kartım
-                                </p>
-                            </a>
-                        </li>
+                            <li class="nav-item has-treeview">
+                                <a href="/Personal/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-circle"></i>
+                                    <p>
+                                        Profil Kartım
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-door-closed"></i>
-                                <p>
-                                    Çıkış Yap
-                                </p>
-                            </a>
+                            <li class="nav-item has-treeview">
+                                <a href="/Login/LogOut/" class="nav-link">
+                                    <i class="nav-icon fas fa-door-closed"></i>
+                                    <p>
+                                        Çıkış Yap
+                                    </p>
+                                </a>
 
-                        </li>
+                            </li>
 
-                    </ul>
+                        </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -234,6 +246,11 @@ to get the desired effect
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Ekko Lightbox -->
+    <script src="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
@@ -251,8 +268,72 @@ to get the desired effect
         $(function () {
             //Add text editor
             $('#compose-textarea').summernote()
-        })</script>
+        })
 
+        $('#added').click(function () {
+            swal({
+                title: "Gönderildi!",
+                text: "Mesaj Başarıyla Gönderildi!",
+                icon: "success",
+                button: false
+            });
+        });
+        $('#draft').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Taslaklara Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+
+        $('#delete').click(function () {
+            swal({
+                title: "Silindi!",
+                text: "Silinenlere Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+        $('#sign').click(function () {
+            swal({
+                title: "İşaretlendi!",
+                icon: "success",
+                button: false
+            });
+        });
+
+        $('#genericadded').click(function () {
+            swal({
+                title: "Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+        $('#genericupdated').click(function () {
+            swal({
+                title: "Güncellendi!",
+                icon: "success",
+                button: false
+            });
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })</script>
 
 </body>
 </html>
