@@ -1,5 +1,5 @@
 # MvcProjeKampi
-
+#### AdminLogin sayfası için - http://recep4153-001-site1.itempurl.com/Login/Index/
 ### İstatistikler Sayfası
 ![istatistik](https://github.com/recepozturk53/MvcProjeKampi/blob/master/MvcProjeKampi/Views/Istatistik/istatistikler.png)
 ### Yetenek Kartım
